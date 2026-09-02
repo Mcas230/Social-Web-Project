@@ -5,13 +5,17 @@ Red social desarrollada como proyecto colaborativo por un equipo de 3–4 person
 
 El proyecto comenzará con tecnologías fundamentales de frontend y evolucionará progresivamente hacia una aplicación Full Stack completa.
 
-🎯 Objetivo
 
+
+---
+https://mcas230.github.io/Social-Web-Project/
 ---
 diseño basado en 
 https://www.figma.com/design/qLDVK9aB48cibFgj2hMe3H/Social-Pages--Copy-?node-id=0-1&p=f&t=iZJ66F1SkI7KKqr2-0
 ---
+🎯 Objetivo
 
+---
 Construir una red social funcional desde cero, aplicando progresivamente los conocimientos adquiridos durante nuestro aprendizaje.
 
 
