@@ -133,10 +133,10 @@ La lista de tecnologías no representa necesariamente el estado actual del proye
 La estructura cambiará conforme evolucione la aplicación.
 
 /
-├── frontend/
-├── backend/
-├── database/
-├── README.md
+-frontend/
+-backend/
+-database/
+-README.md
 └── ...
 
 
