@@ -8,7 +8,7 @@ El proyecto comenzará con tecnologías fundamentales de frontend y evolucionar�
 🎯 Objetivo
 
 ---
-*diseño basado en 
+diseño basado en 
 https://www.figma.com/design/qLDVK9aB48cibFgj2hMe3H/Social-Pages--Copy-?node-id=0-1&p=f&t=iZJ66F1SkI7KKqr2-0
 ---
 
