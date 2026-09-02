@@ -1,0 +1,32 @@
+body {
+    font-family: "Manrope", sans-serif;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    
+    font-size: 50px;
+}
+
+.bar {
+    gap: 20px;
+    display:flex;
+    align-items: center;
+}
+
+.bar .logo {
+    margin-top: -25px;
+}
+
+.bar .form {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+}
+
+.bar .icons {
+    gap: 20px;
+    display: flex;
+    margin-top: -25px;
+}
