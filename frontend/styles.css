@@ -30,3 +30,7 @@ h1 {
     display: flex;
     margin-top: -25px;
 }
+
+.liked {
+    color: red;
+}
