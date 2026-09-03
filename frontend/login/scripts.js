@@ -2,15 +2,25 @@ const password = document.querySelector("#password");
 const email = document.querySelector("#email");
 const button = document.querySelector("button");
 
+
 button.addEventListener("click", () => {
 
     const passwordValue = password.value;
     const emailValue = email.value;
 
-    console.log(emailValue);
-    console.log(passwordValue);
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: emailValue,
+            password: passwordValue
+        })
+    });
 
 });
+
 
 function validarCampos() {
     if (password.value.length >= 6 && email.value.length >= 1) {
