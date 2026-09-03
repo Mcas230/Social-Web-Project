@@ -2,8 +2,11 @@ const password = document.querySelector("#password");
 const email = document.querySelector("#email");
 const button = document.querySelector("button");
 
+console.log("SCRIPTS.JS CARGADO");
 
 button.addEventListener("click", () => {
+
+    console.log("BOTÓN PRESIONADO");
 
     const passwordValue = password.value;
     const emailValue = email.value;
@@ -17,6 +20,19 @@ button.addEventListener("click", () => {
             email: emailValue,
             password: passwordValue
         })
+    })
+    .then(response => {
+        console.log("RESPUESTA DEL SERVIDOR:", response.status);
+        return response.json();
+    })
+    .then(data => {
+        console.log("DATOS DEL SERVIDOR:", data.mensaje);
+        if (data.mensaje === "Login correcto") {
+            window.location.href = "../index.html";
+        }
+    })
+    .catch(error => {
+        console.error("ERROR FETCH:", error);
     });
 
 });
