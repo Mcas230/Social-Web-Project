@@ -1,0 +1,143 @@
+body {
+    background-color: #ffff;
+    font-family: "Manrope", sans-serif;
+    color: #000000;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    border-bottom: 1px solid gray;
+    position: relative;
+}
+
+.loginContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background-color: gray;
+}
+
+.loginImage {
+    background-color: #eeeeee;
+    width: 50%;
+    align-self: stretch;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginImage img {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginImage,
+.loginForm {
+    width: 50%;
+}
+
+.logginInput {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+
+input,
+button {
+    border: 1px solid gray;
+    color: #000000;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+input {
+    padding-left: 5%;
+}
+
+button {
+    border-radius: 100px;
+    background-color: #111181;
+    color: aliceblue;
+}
+
+input::placeholder {
+    color: gray;
+}
+
+footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0;
+    font-size: 12px;
+}
+
+
+/* Modo oscuro */
+
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background-color: #202124;
+        color: white;
+    }
+
+    .loginImage {
+        background-color: #000000;
+    }
+
+    .loginContainer {
+        border-bottom-color: gray;
+    }
+
+    input {
+        background-color: #202124;
+        color: aliceblue;
+    }
+
+    input::placeholder {
+        color: aliceblue;
+    }
+
+    button {
+        background-color: #111181;
+        color: aliceblue;
+    }
+}
+
+
+/* Pantallas pequeñas */
+
+@media (max-width: 700px) {
+
+    .loginImage {
+        display: none;
+    }
+
+    .loginForm {
+        width: 100%;
+    }
+
+    .loginContainer::after {
+        display: none;
+    }
+}
