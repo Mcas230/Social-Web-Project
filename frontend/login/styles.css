@@ -74,14 +74,20 @@ input {
     padding-left: 5%;
 }
 
+
+
 button {
     border-radius: 100px;
     background-color: #111181;
     color: aliceblue;
 }
 
-input::placeholder {
-    color: gray;
+button.activo {
+    background-color: #0f6dcc;
+}
+
+button.activo:hover {
+    background-color: #1678df;
 }
 
 footer {
