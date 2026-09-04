@@ -1,17 +1,12 @@
-require("dotenv").config({ path: "../.env.local" });
-
-
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
-
-const app = express();
 const { Pool } = require("pg");
 
+const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL
