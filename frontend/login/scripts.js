@@ -11,7 +11,7 @@ button.addEventListener("click", () => {
     const passwordValue = password.value;
     const emailValue = email.value;
 
-    fetch("http://localhost:3000/login", {
+    fetch("/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
