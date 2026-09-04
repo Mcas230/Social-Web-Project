@@ -21,6 +21,8 @@ button.addEventListener("click", () => {
             password: passwordValue
         })
     })
+
+    
     .then(response => {
         console.log("RESPUESTA DEL SERVIDOR:", response.status);
         return response.json();
