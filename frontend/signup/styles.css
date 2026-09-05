@@ -1,0 +1,111 @@
+body { 
+    background-color: #ffff; 
+    font-family: "Manrope", sans-serif; 
+    color: #000000; 
+ 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+ 
+    margin: 0; 
+    padding: 20px;
+    box-sizing: border-box;
+} 
+ 
+.signUpForm { 
+    display: flex; 
+    flex-direction: column; 
+    flex: 1; 
+    gap: 25px; 
+ 
+    width: 90%; 
+    max-width: 500px;
+} 
+ 
+.inputGroup { 
+    display: flex; 
+    flex-direction: column; 
+} 
+ 
+.inputGroup input, 
+#signUpButton { 
+    border: 1px solid gray; 
+    height: 50px; 
+    border-radius: 20px;
+    box-sizing: border-box;
+} 
+ 
+input { 
+    padding-left: 5%; 
+} 
+ 
+button { 
+    background-color: #d94a4a;
+} 
+ 
+button:hover { 
+    background-color: #e56363; 
+} 
+ 
+button:active { 
+    background-color: #b83f3f; 
+} 
+
+.returnButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    background-color: #d94a4a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.returnButton:hover {
+    background-color: #e56363;
+}
+
+.returnButton:active {
+    background-color: #b83f3f;
+}
+
+.returnButton svg {
+    width: 30px;
+    height: 30px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.returnButton{
+    color: white;
+}
+
+ 
+@media (prefers-color-scheme: dark) { 
+ 
+    body { 
+        background-color: #202124; 
+        color: white; 
+    } 
+ 
+    input { 
+        background-color: #202124; 
+        color: white; 
+    } 
+
+    button {
+        color: white;
+    }
+}
