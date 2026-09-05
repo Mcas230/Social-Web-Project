@@ -1,3 +1,6 @@
+require("dotenv").config({ path: ".env.local" });
+console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
@@ -80,4 +83,33 @@ if (require.main === module) {
     });
 }
 
+app.post("/signup", async (req, res) => {
+
+    const { usuario, nombre_usuario, email, password } = req.body;
+
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    pool.query(
+        "INSERT INTO usuarios (usuario, nombre_usuario ,email, password_hash) VALUES ($1, $2, $3, $4)",
+        [usuario, nombre_usuario, email, passwordHash],
+        (error, result) => {
+
+            if (error) {
+                console.error("ERROR:", error);
+                return res.status(500).json({
+                    mensaje: "Error al registrar usuario"
+                });
+            }
+
+            res.json({
+                mensaje: "Usuario registrado correctamente"
+            });
+
+        }
+    );
+
+});
+
+
 module.exports = app;
+

@@ -90,6 +90,34 @@ button.activo:hover {
     background-color: #1678df;
 }
 
+button.activo:active {
+    background-color: #0a4f99;
+}
+
+
+#signUp {
+    background-color: #d94a4a;
+    color: aliceblue;
+
+    border: 1px solid gray;
+    height: 50px;
+    border-radius: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+}
+
+#signUp:hover {
+    background-color: #e56363;
+}
+
+#signUp:active {
+    background-color: #b83f3f;
+}
+
 footer {
     max-width: 1000px;
     margin: 0 auto;
@@ -128,6 +156,7 @@ footer {
         background-color: #111181;
         color: aliceblue;
     }
+
 }
 
 
