@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const { Pool } = require("pg");
+const crypto = require("crypto");
 
 const app = express();
 
@@ -66,11 +67,28 @@ app.post("/login", (req, res) => {
                 });
             }
 
-            res.json({
-                mensaje: "Login correcto",
-                usuario: usuario.usuario
-            });
+            const token = crypto.randomBytes(32).toString("hex");
+            const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
+            pool.query(
+                "INSERT INTO sesiones (usuario_id, token, expires_at) VALUES ($1, $2, $3)",
+                [usuario.id, token, expiresAt],
+                (error, result) => {
+                
+                    if (error) {
+                        console.error("ERROR:", error);
+                        return res.status(500).json({
+                            mensaje: "Error al crear la sesión"
+                        });
+                    }
+                
+                    res.json({
+                        mensaje: "Login correcto",
+                        usuario: usuario.usuario
+                    });
+                
+                }
+            );          
         }
     );
 
