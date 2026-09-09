@@ -6,11 +6,13 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const { Pool } = require("pg");
 const crypto = require("crypto");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL
@@ -81,6 +83,13 @@ app.post("/login", (req, res) => {
                             mensaje: "Error al crear la sesión"
                         });
                     }
+
+                    res.cookie("session", token, {
+                        httpOnly: true,
+                        secure: true,
+                        sameSite: "lax",
+                        maxAge: 24 * 60 * 60 * 1000
+                    });
                 
                     res.json({
                         mensaje: "Login correcto",
