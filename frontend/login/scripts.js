@@ -22,14 +22,15 @@ button.addEventListener("click", () => {
         })
     })
 
-    
     .then(response => {
         console.log("RESPUESTA DEL SERVIDOR:", response.status);
         return response.json();
     })
     .then(data => {
         console.log("DATOS DEL SERVIDOR:", data.mensaje);
+
         if (data.mensaje === "Login correcto") {
+            sessionStorage.setItem("loggedIn", "true");
             window.location.href = "../index.html";
         }
     })
@@ -47,6 +48,12 @@ function validarCampos() {
         button.classList.remove("activo");
     }
 }
+
+
+if (sessionStorage.getItem("loggedIn") === "true") {
+    window.location.href = "../index.html";
+}
+
 
 password.addEventListener("input", validarCampos);
 email.addEventListener("input", validarCampos);
