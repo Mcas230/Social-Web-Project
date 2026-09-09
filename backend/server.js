@@ -138,5 +138,51 @@ app.post("/signup", async (req, res) => {
 });
 
 
+app.get("/session", (req, res) => {
+
+    const token = req.cookies.session;
+
+    if (!token) {
+        return res.status(401).json({
+            autenticado: false
+        });
+    }
+
+    pool.query(
+        "SELECT * FROM sesiones WHERE token = $1 AND expires_at > NOW()",
+        [token],
+        (error, result) => {
+
+            if (error) {
+                console.error("ERROR:", error);
+                return res.status(500).json({
+                    mensaje: "Error del servidor"
+                });
+            }
+
+            if (result.rows.length === 0) {
+                return res.status(401).json({
+                    autenticado: false
+                });
+            }
+
+            res.json({
+                autenticado: true,
+                usuario_id: result.rows[0].usuario_id
+            });
+
+        }
+    );
+
+});
+
+
+
+
+
+
+
+
+
 module.exports = app;
 
