@@ -112,6 +112,23 @@ if (require.main === module) {
 
 app.post("/signup", async (req, res) => {
 
+    const token = req.cookies.session;
+
+    if (token) {
+
+        const result = await pool.query(
+            "SELECT * FROM sesiones WHERE token = $1 AND expires_at > NOW()",
+            [token]
+        );
+
+        if (result.rows.length > 0) {
+            return res.status(403).json({
+                mensaje: "Ya tienes una sesión activa"
+            });
+        }
+
+    }
+
     const { usuario, nombre_usuario, email, password } = req.body;
 
     const passwordHash = await bcrypt.hash(password, 10);
@@ -175,13 +192,6 @@ app.get("/session", (req, res) => {
     );
 
 });
-
-
-
-
-
-
-
 
 
 module.exports = app;
