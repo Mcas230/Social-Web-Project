@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const { Pool } = require("pg");
+const crypto = require("crypto");
 
 const app = express();
 
@@ -65,6 +66,9 @@ app.post("/login", (req, res) => {
                     mensaje: "Correo o contraseña incorrectos"
                 });
             }
+
+            const token = crypto.randomBytes(32).toString("hex");
+            const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
             res.json({
                 mensaje: "Login correcto",
