@@ -70,11 +70,25 @@ app.post("/login", (req, res) => {
             const token = crypto.randomBytes(32).toString("hex");
             const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
 
-            res.json({
-                mensaje: "Login correcto",
-                usuario: usuario.usuario
-            });
-
+            pool.query(
+                "INSERT INTO sesiones (usuario_id, token, expires_at) VALUES ($1, $2, $3)",
+                [usuario.id, token, expiresAt],
+                (error, result) => {
+                
+                    if (error) {
+                        console.error("ERROR:", error);
+                        return res.status(500).json({
+                            mensaje: "Error al crear la sesión"
+                        });
+                    }
+                
+                    res.json({
+                        mensaje: "Login correcto",
+                        usuario: usuario.usuario
+                    });
+                
+                }
+            );          
         }
     );
 
