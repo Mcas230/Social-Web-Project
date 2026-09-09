@@ -4,6 +4,31 @@ const button = document.querySelector("button");
 
 console.log("SCRIPTS.JS CARGADO");
 
+fetch("/api/session")
+    .then(response => {
+
+        if (response.status === 200) {
+            return response.json();
+        }
+
+        document.body.style.visibility = "visible";
+
+    })
+    .then(data => {
+
+        if (data && data.autenticado === true) {
+            window.location.replace("../index.html");
+        }
+
+    })
+    .catch(error => {
+
+        console.error("ERROR AL COMPROBAR SESIÓN:", error);
+        document.body.style.visibility = "visible";
+
+    });
+
+
 button.addEventListener("click", () => {
 
     console.log("BOTÓN PRESIONADO");
@@ -26,14 +51,17 @@ button.addEventListener("click", () => {
         console.log("RESPUESTA DEL SERVIDOR:", response.status);
         return response.json();
     })
+
     .then(data => {
+
         console.log("DATOS DEL SERVIDOR:", data.mensaje);
 
         if (data.mensaje === "Login correcto") {
-            sessionStorage.setItem("loggedIn", "true");
             window.location.replace("../index.html");
         }
+
     })
+
     .catch(error => {
         console.error("ERROR FETCH:", error);
     });
@@ -42,18 +70,13 @@ button.addEventListener("click", () => {
 
 
 function validarCampos() {
+
     if (password.value.length >= 6 && email.value.length >= 1) {
         button.classList.add("activo");
     } else {
         button.classList.remove("activo");
     }
 }
-
-
-if (sessionStorage.getItem("loggedIn") === "true") {
-    window.location.replace("../index.html");
-}
-
 
 password.addEventListener("input", validarCampos);
 email.addEventListener("input", validarCampos);
