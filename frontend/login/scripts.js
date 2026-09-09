@@ -31,7 +31,7 @@ button.addEventListener("click", () => {
 
         if (data.mensaje === "Login correcto") {
             sessionStorage.setItem("loggedIn", "true");
-            window.location.href = "../index.html";
+            window.location.replace("../index.html");
         }
     })
     .catch(error => {
@@ -51,7 +51,7 @@ function validarCampos() {
 
 
 if (sessionStorage.getItem("loggedIn") === "true") {
-    window.location.href = "../index.html";
+    window.location.replace("../index.html");
 }
 
 
