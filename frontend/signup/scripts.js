@@ -5,6 +5,31 @@ const password = document.querySelector("#signPassword");
 const button = document.querySelector("#signUpButton");
 
 
+fetch("/api/session")
+    .then(response => {
+
+        if (response.status === 200) {
+            return response.json();
+        }
+
+        document.body.style.visibility = "visible";
+
+    })
+    .then(data => {
+
+        if (data && data.autenticado === true) {
+            window.location.replace("../index.html");
+        }
+
+    })
+    .catch(error => {
+
+        console.error("ERROR AL COMPROBAR SESIÓN:", error);
+        document.body.style.visibility = "visible";
+
+    });
+
+
 button.addEventListener("click", () => {
 
 
@@ -28,7 +53,7 @@ button.addEventListener("click", () => {
             return;
         }
 
-    fetch("http://localhost:3000/signup", {
+    fetch("/api/signup", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
