@@ -1,6 +1,6 @@
-🌐 [Nombre de la pagina]
+🌐 Instacraft
 
-Red social desarrollada como proyecto colaborativo por un equipo de 3–4 personas, con el objetivo de construir y escalar una aplicación web mientras recorremos la ruta Full Stack Developer.
+Red social desarrollada como proyecto colaborativo por un equipo de 5–6 personas, con el objetivo de construir y escalar una aplicación web mientras recorremos la ruta Full Stack Developer.
 
 
 El proyecto comenzará con tecnologías fundamentales de frontend y evolucionará progresivamente hacia una aplicación Full Stack completa.
@@ -107,17 +107,17 @@ Git
 
 GitHub
 
-Planeadas
-
-npm
-
-React
-
 Node.js
 
 Express
 
+Planeadas
+
+npm
+
 PostgreSQL
+
+React
 
 REST API
 
@@ -155,6 +155,10 @@ Miguel Castillo
 Jeison
 
 Camilo
+
+Santiago
+
+Acosta
 
 tal vez Caicedo si se anima
 
