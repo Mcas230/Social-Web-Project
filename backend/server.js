@@ -196,9 +196,49 @@ app.get("/session", (req, res) => {
 
 app.get("/profile", (req, res) => {
 
-    res.json({
-        username: "warioman"
-    });
+    const token = req.cookies.session;
+
+    pool.query(
+        "SELECT usuario_id FROM sesiones WHERE token = $1 AND expires_at > NOW()",
+        [token],
+        (error, result) => {
+
+            if (error) {
+                console.error("ERROR:", error);
+                return res.status(500).json({
+                    mensaje: "Error del servidor"
+                });
+            }
+
+            if (result.rows.length === 0) {
+                return res.status(401).json({
+                    mensaje: "No hay una sesión válida"
+                });
+            }
+
+            const usuarioId = result.rows[0].usuario_id;
+
+            pool.query(
+                "SELECT usuario FROM usuarios WHERE id = $1",
+                [usuarioId],
+                (error, result) => {
+
+                    if (error) {
+                        console.error("ERROR:", error);
+                        return res.status(500).json({
+                            mensaje: "Error del servidor"
+                        });
+                    }
+
+                    res.json({
+                        username: result.rows[0].usuario
+                    });
+
+                }
+            );
+
+        }
+    );
 
 });
 
