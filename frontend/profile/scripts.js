@@ -42,11 +42,13 @@ closeModal.addEventListener("click", () => {
 
 
 const profileUsername = document.querySelector(".profileUsername");
-
-profileUsername.textContent = ""
+const User = document.querySelector(".User");
 
 fetch("/api/profile")
     .then(response => response.json())
     .then(data => {
+        console.log(data);
+
         profileUsername.textContent = data.username;
+        User.textContent = data.nombre;
     });

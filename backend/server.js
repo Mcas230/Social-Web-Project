@@ -219,7 +219,7 @@ app.get("/profile", (req, res) => {
             const usuarioId = result.rows[0].usuario_id;
 
             pool.query(
-                "SELECT usuario FROM usuarios WHERE id = $1",
+                "SELECT usuario, nombre_usuario FROM usuarios WHERE id = $1",
                 [usuarioId],
                 (error, result) => {
 
@@ -231,7 +231,8 @@ app.get("/profile", (req, res) => {
                     }
 
                     res.json({
-                        username: result.rows[0].usuario
+                        username: result.rows[0].usuario,
+                        nombre: result.rows[0].nombre_usuario
                     });
 
                 }
