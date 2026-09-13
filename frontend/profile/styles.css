@@ -1,0 +1,170 @@
+:root {
+  background-color: #0000001A;
+  --base-font: 'Manrope', sans-serif;
+  font-style: normal;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--base-font);
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    border-bottom: 1px solid;
+}
+
+.search {
+    position: relative;
+}
+
+.search i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search input {
+    padding-left: 30px;
+}
+
+/*================================================*/
+
+.profileInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+.profilePhoto {
+    width: clamp(80px, 15vw, 150px);
+    height: clamp(80px, 15vw, 150px);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    max-width: 500px;
+}
+
+.profileActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profileStats {
+    display: flex;
+    gap: 20px;
+}
+
+.profileUsername {
+    margin: 0;
+}
+
+.profileDescription {
+    margin: 0;
+}
+
+/*================================================*/
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 80%;
+    margin: 10px auto;
+}
+
+.post {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 2px solid #000000;
+}
+
+.post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*================================================*/
+
+footer {
+
+    border: 1px solid #000000;
+    margin-top: 10px;
+}
+
+.groupName{
+    margin: 10px;
+}
+/*================================================*/
+
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: #00000080;
+}
+
+.modalContent {
+    position: relative;
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    background-color: white;
+}
+
+.modalContent img {
+    width: 45%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+
+/*================================================*/
+
+
+h2{
+    margin: 10px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
