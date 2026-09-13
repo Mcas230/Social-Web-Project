@@ -39,3 +39,14 @@ post.addEventListener("click", () => {
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
+
+
+const profileUsername = document.querySelector(".profileUsername");
+
+profileUsername.textContent = ""
+
+fetch("/api/profile")
+    .then(response => response.json())
+    .then(data => {
+        profileUsername.textContent = data.username;
+    });
