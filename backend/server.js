@@ -194,5 +194,16 @@ app.get("/session", (req, res) => {
 });
 
 
+app.get("/profile", (req, res) => {
+
+    res.json({
+        username: "warioman"
+    });
+
+});
+
+
 module.exports = app;
+
+
 
