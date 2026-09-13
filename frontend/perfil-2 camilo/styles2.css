@@ -39,28 +39,32 @@ h1{margin:0 auto;}
             display: flex;
             flex-direction: column;
             gap: 50px;
-        }
+       }
         .main img {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             height: 400px;
             width: 400px; 
             margin-left: 100px;          
         }
+        .video-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-right: 0;
+            align-items: center;
+            gap: 0px;
+        }
         .main video { 
             justify-content: center;
-            width: 30%;
+            width: auto;
             max-width: 60%;
-            height: auto;
+            height: 100vh;
             aspect-ratio: 9/16;
             margin: 0; 
             margin-right: 0;
 
-        }
-        .video-container{
-            display: flex;
-            flex-direction: row;
-            margin-right: 0;
-            align-items: center;
-            gap: 0px;
         }
         .interaction-bar{
             display: flex;
