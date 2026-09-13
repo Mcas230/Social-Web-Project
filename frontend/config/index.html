@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram - Configuración</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <!-- 1. BARRA  IZQUIERDA (Iconitos) -->
+        <aside class="sidebar-icons">
+            <div class="top-icons">
+                <a href="#" class="icon-link"><i data-lucide="instagram"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="home"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="tv"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="send"></i></a>
+                <a href="#" class="icon-link active"><i data-lucide="search"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="heart"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="plus-square"></i></a>
+                <a href="#" class="icon-link profile-avatar"><img src="https://via.placeholder.com/24" alt="Perfil"></a>
+            </div>
+            <div class="bottom-icons">
+                <a href="#" class="icon-link"><i data-lucide="menu"></i></a>
+                <a href="#" class="icon-link"><i data-lucide="grid"></i></a>
+            </div>
+        </aside>
+
+        <!-- MENÚ DE CONFIGURACIÓN -->
+        <aside class="settings-sidebar">
+            <h1 class="settings-title">Configuración</h1>
+
+        <!-- barra de configuración -->
+        <form action="/busqueda" method="POST" class="search-container">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="search" id="Buscar" name="NAME" placeholder="Buscar" class="search-input" />
+            </form>
+
+            <div class="menu-section">
+                <div class="menu-header">
+                    <span>Tu cuenta</span>
+                    <span class="meta-brand"><i data-lucide="infinity"></i> Meta</span>
+                </div>
+                
+                <div class="menu-item card-item">
+                    <i data-lucide="user-check" class="item-icon"></i>
+                    <div class="item-text">
+                        <strong>Centro de cuentas</strong>
+                        <p>Contraseña, seguridad, datos personales, experiencias conectadas...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-header">Cómo usas Instagram</div>
+                <div class="menu-item"><i data-lucide="user"></i> <span>Editar perfil</span></div>
+                <div class="menu-item"><i data-lucide="bell"></i> <span>Notificaciones</span></div>
+            </div>
+            <br>
+            <div class="menu-section">
+                <div class="menu-header">Quién puede ver tu contenido</div>
+                <div class="menu-item"><i data-lucide="lock"></i> <span>Privacidad de la cuenta</span></div>
+                <div class="menu-item"><i data-lucide="star"></i> <span>Mejores amigos</span></div>
+                <div class="menu-item active-menu-item"><i data-lucide="ban"></i> <span>Bloqueados</span></div>
+                <div class="menu-item"><i data-lucide="history"></i> <span>Historia y ubicación</span></div>
+            </div>
+        </aside>
+
+
+        <main class="main-content">
+            <div class="content-container">
+
+                <!-- ENCABEZADO Y TUS BOTONES DE CONFIGURACIÓN DE DATOS -->
+                <div class="bottom-bar">
+                    <h4><i data-lucide="chevron-left" class="back-icon"></i> Cuentas bloqueadas / Configuración</h2>
+                    <p class="subtitle">Puedes gestionar las acciones y datos de tu cuenta desde esta sección.</p>
+                    
+                    <div class="action-buttons-group">
+                        <button type="button" id="caonfigdates" class="btn btn-secondary">Cambiar datos</button>
+                        <a href="../config/configdates.html" class="btn btn-link">Configurar datos</a>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- FORMULARIO DE COMENTARIOS (no funciona xd) -->
+                <div class="feedback-section">
+                    <h3>Envíanos tus problemas</h3>
+                    <form action="/busqueda" method="POST" class="comment-form">
+                        <div class="form-group">
+                            <textarea rows="4" cols="30" id="comentarios" name="NAME" placeholder="Escribe tu opinión aquí..." class="custom-textarea"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar comentario</button>
+                    </form>
+                </div>
+
+            </div>
+<br>
+<br>
+            <!-- PARTE DE ABAJO -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#">Chat gpt</a>
+                <a href="#">Información</a>
+                <a href="#">API</a>
+                <a href="#">Ubicaciones</a>
+                <a href="#">Twitter</a>
+                </div>
+                <div class="footer-copyright">
+                    <span>Español <i data-lucide="chevron-down"></i></span>
+                    <span>© electronicos corporation</span>
+                </div>
+            </footer>
+        </main>
+
+    </div>
+
+    <!-- Carga de iconos -->
+<script>
+        lucide.createIcons();
+</script>
+</body>
+</html>
