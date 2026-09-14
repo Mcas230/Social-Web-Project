@@ -218,31 +218,64 @@ app.get("/profile", (req, res) => {
                 });
             }
 
+
             const usuarioId = result.rows[0].usuario_id;
 
-            pool.query(
-            `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
-            FROM usuarios
-            JOIN perfiles ON usuarios.id = perfiles.usuario_id
-            WHERE usuarios.nombre_usuario = $1`,
-            [usuario],
-            (error, result) => {
-                if (error) {
-                    console.error("ERROR:", error);
-                        return res.status(500).json({
-                            mensaje: "Error del servidor"
+            if (usuario) {
+
+                pool.query(
+                    `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
+                    FROM usuarios
+                    JOIN perfiles ON usuarios.id = perfiles.usuario_id
+                    WHERE usuarios.nombre_usuario = $1`,
+                    [usuario],
+                    (error, result) => {
+
+                        if (error) {
+                            console.error("ERROR:", error);
+                            return res.status(500).json({
+                                mensaje: "Error del servidor"
+                            });
+                        }
+
+                        res.json({
+                            username: result.rows[0].usuario,
+                            nombre: result.rows[0].nombre_usuario,
+                            foto_perfil: result.rows[0].foto_perfil,
+                            descripcion: result.rows[0].descripcion
                         });
+
                     }
+                );
 
-                    res.json({
-                        username: result.rows[0].usuario,
-                        nombre: result.rows[0].nombre_usuario,
-                        foto_perfil: result.rows[0].foto_perfil,
-                        descripcion: result.rows[0].descripcion
-                    });
+            } else {
 
-                }
-            );
+                pool.query(
+                    `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
+                    FROM usuarios
+                    JOIN perfiles ON usuarios.id = perfiles.usuario_id
+                    WHERE usuarios.id = $1`,
+                    [usuarioId],
+                    (error, result) => {
+
+                        if (error) {
+                            console.error("ERROR:", error);
+                            return res.status(500).json({
+                                mensaje: "Error del servidor"
+                            });
+                        }
+
+                        res.json({
+                            username: result.rows[0].usuario,
+                            nombre: result.rows[0].nombre_usuario,
+                            foto_perfil: result.rows[0].foto_perfil,
+                            descripcion: result.rows[0].descripcion
+                        });
+
+                    }
+                );
+
+            }
 
         }
     );
