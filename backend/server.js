@@ -221,15 +221,14 @@ app.get("/profile", (req, res) => {
             const usuarioId = result.rows[0].usuario_id;
 
             pool.query(
-                `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
-                FROM usuarios
-                JOIN perfiles ON usuarios.id = perfiles.usuario_id
-                WHERE usuarios.id = $1`,
-                [usuarioId],
-                (error, result) => {
-
-                    if (error) {
-                        console.error("ERROR:", error);
+            `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
+            FROM usuarios
+            JOIN perfiles ON usuarios.id = perfiles.usuario_id
+            WHERE usuarios.nombre_usuario = $1`,
+            [usuario],
+            (error, result) => {
+                if (error) {
+                    console.error("ERROR:", error);
                         return res.status(500).json({
                             mensaje: "Error del servidor"
                         });
