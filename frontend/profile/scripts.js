@@ -6,7 +6,7 @@ const profileDescription = document.querySelector(".profileDescription");
 const params = new URLSearchParams(window.location.search);
 const usuario = params.get("usuario");
 
-fetch("/api/profile")
+fetch(`/api/profile?usuario=${usuario}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);

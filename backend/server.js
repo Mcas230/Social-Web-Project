@@ -196,6 +196,8 @@ app.get("/session", (req, res) => {
 
 app.get("/profile", (req, res) => {
 
+    const usuario = req.query.usuario;
+    console.log("USUARIO SOLICITADO:", usuario);
     const token = req.cookies.session;
 
     pool.query(
