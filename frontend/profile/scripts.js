@@ -1,3 +1,26 @@
+const profileUsername = document.querySelector(".profileUsername");
+const User = document.querySelector(".User");
+const profilePhoto = document.querySelector(".profilePhoto");
+const profileDescription = document.querySelector(".profileDescription");
+
+const params = new URLSearchParams(window.location.search);
+const usuario = params.get("usuario");
+
+fetch("/api/profile")
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        profileUsername.textContent = data.username;
+        User.textContent = data.nombre;
+        profilePhoto.src = data.foto_perfil;
+        profileDescription.textContent = data.descripcion;
+    });
+
+
+/*============================================================================*/
+
+
 const modal = document.querySelector(".modal");
 const posts = document.querySelector(".posts");
 
@@ -40,20 +63,3 @@ closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-
-/*============================================================================*/
-
-
-const profileUsername = document.querySelector(".profileUsername");
-const User = document.querySelector(".User");
-const profilePhoto = document.querySelector(".profilePhoto");
-
-fetch("/api/profile")
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-
-        profileUsername.textContent = data.username;
-        User.textContent = data.nombre;
-        profilePhoto.src = data.foto_perfil;
-    });
