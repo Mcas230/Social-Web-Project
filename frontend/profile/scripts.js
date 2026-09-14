@@ -41,8 +41,12 @@ closeModal.addEventListener("click", () => {
 });
 
 
+/*============================================================================*/
+
+
 const profileUsername = document.querySelector(".profileUsername");
 const User = document.querySelector(".User");
+const profilePhoto = document.querySelector(".profilePhoto");
 
 fetch("/api/profile")
     .then(response => response.json())
@@ -51,4 +55,5 @@ fetch("/api/profile")
 
         profileUsername.textContent = data.username;
         User.textContent = data.nombre;
+        profilePhoto.src = "warioman.png";
     });
