@@ -55,5 +55,5 @@ fetch("/api/profile")
 
         profileUsername.textContent = data.username;
         User.textContent = data.nombre;
-        profilePhoto.src = "warioman.png";
+        profilePhoto.src = data.foto_perfil;
     });
