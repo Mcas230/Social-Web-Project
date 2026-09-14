@@ -6,7 +6,13 @@ const profileDescription = document.querySelector(".profileDescription");
 const params = new URLSearchParams(window.location.search);
 const usuario = params.get("usuario");
 
-fetch(`/api/profile?usuario=${usuario}`)
+let url = "/api/profile";
+
+if (usuario) {
+    url += `?usuario=${usuario}`;
+}
+
+fetch(url)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -16,7 +22,6 @@ fetch(`/api/profile?usuario=${usuario}`)
         profilePhoto.src = data.foto_perfil;
         profileDescription.textContent = data.descripcion;
     });
-
 
 /*============================================================================*/
 
