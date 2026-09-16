@@ -270,7 +270,7 @@ app.get("/profile", (req, res) => {
                             username: result.rows[0].usuario,
                             nombre: result.rows[0].nombre_usuario,
                             foto_perfil: result.rows[0].foto_perfil,
-                            descripcion: result.rows[0].descripcion
+                            descripcion: result.rows[0].descripcion,
                             es_mi_perfil: result.rows[0].id === usuarioId
                         });
 
