@@ -224,7 +224,7 @@ app.get("/profile", (req, res) => {
             if (usuario) {
 
                 pool.query(
-                    `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
+                    `SELECT usuarios.id, usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
                     FROM usuarios
                     JOIN perfiles ON usuarios.id = perfiles.usuario_id
                     WHERE usuarios.nombre_usuario = $1`,
@@ -251,7 +251,7 @@ app.get("/profile", (req, res) => {
             } else {
 
                 pool.query(
-                    `SELECT usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
+                    `SELECT usuarios.id, usuarios.usuario, usuarios.nombre_usuario, perfiles.foto_perfil, perfiles.descripcion
                     FROM usuarios
                     JOIN perfiles ON usuarios.id = perfiles.usuario_id
                     WHERE usuarios.id = $1`,
