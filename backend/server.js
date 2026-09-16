@@ -243,6 +243,7 @@ app.get("/profile", (req, res) => {
                             nombre: result.rows[0].nombre_usuario,
                             foto_perfil: result.rows[0].foto_perfil,
                             descripcion: result.rows[0].descripcion
+                            es_mi_perfil: result.rows[0].id === usuarioId
                         });
 
                     }
@@ -270,6 +271,7 @@ app.get("/profile", (req, res) => {
                             nombre: result.rows[0].nombre_usuario,
                             foto_perfil: result.rows[0].foto_perfil,
                             descripcion: result.rows[0].descripcion
+                            es_mi_perfil: result.rows[0].id === usuarioId
                         });
 
                     }
